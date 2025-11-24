@@ -1,0 +1,26 @@
+{
+  // server/tsconfig.json
+  "compilerOptions": {
+    // === Dateistruktur ===
+    "rootDir": "./src",        // // NEU: TS geht davon aus, dass dein Quellcode in src liegt
+    "outDir": "./dist",        // // NEU: kompilierte JS-Dateien landen in dist
+
+    // === Zielumgebung (Node + CommonJS) ===
+    "target": "ES2020",        // // GEÄNDERT: moderne Syntax, die Node gut kann
+    "module": "CommonJS",      // // GEÄNDERT: klassisches Node-Format für require()
+    "moduleResolution": "Node",// // NEU: Modulauflösung wie bei Node
+
+    // === Typen ===
+    "types": ["node"],         // // GEÄNDERT: Node-Typdefinitionen aktivieren
+    "strict": true,            // // wie gehabt: strikte Typprüfung
+    "skipLibCheck": true,      // // Bibliotheken werden nicht komplett durchgeprüft
+    "esModuleInterop": true,   // // erlaubt `import express from "express"`
+
+    // === Zusätzliche Sicherheitsfeatures ===
+    "noUncheckedIndexedAccess": true,   // // aus deiner alten Config übernommen
+    "exactOptionalPropertyTypes": true, // // aus deiner alten Config übernommen
+
+    // === Wichtig für deine Fehlermeldung ===
+    "verbatimModuleSyntax": false       // // GEÄNDERT: erlaubt ES-Imports in CJS-Builds
+  }
+}
